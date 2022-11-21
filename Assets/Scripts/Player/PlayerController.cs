@@ -11,18 +11,6 @@ public class PlayerController : MonoBehaviour
     #region SerializeFields
     [SerializeField] private Animator anim;
     #endregion
-
-    public virtual void Awake()
-    {
-        if (!instance)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
    
     private void Update()
     {
