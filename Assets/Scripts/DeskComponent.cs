@@ -13,16 +13,20 @@ public class DeskComponent : MonoBehaviour
     #endregion
     public GameObject buyPanel;
     public GameObject buyWorker;
-    public int price;
     [Header("Desk Objects")]
     public int deskLevel;
 
 
     public GameObject buyDesk;
+    
     public GameObject desk1Available;
     public GameObject desk1NotAvailable;
+
     public GameObject desk2Available;
     public GameObject desk2NotAvailable;
+
+    public GameObject chair1;
+    public GameObject chair2;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,11 +50,11 @@ public class DeskComponent : MonoBehaviour
     {
         buyDesk.SetActive(false);
     }
-    public void UpgradeDesk(int level)
+    public void UpgradeDesk(GameObject buttonComp)
     {
-        if (GameManager.instance.GetMoney() > price)
+        if (GameManager.instance.GetMoney() >= buttonComp.GetComponent<ButtonComponent>().Getprice())
         {
-            deskLevel = level;
+            deskLevel = buttonComp.GetComponent<ButtonComponent>().GetLevel();
             levelControl();
         }
     }
@@ -62,6 +66,8 @@ public class DeskComponent : MonoBehaviour
             GameManager.instance.DecreaseMoney(25);
             desk1Available.SetActive(false);
             desk1NotAvailable.SetActive(true);
+            chair1.SetActive(true);
+            chair2.SetActive(false);
         }
         if (deskLevel == 2)
         {
@@ -69,6 +75,8 @@ public class DeskComponent : MonoBehaviour
             GameManager.instance.DecreaseMoney(75);
             desk2Available.SetActive(false);
             desk2NotAvailable.SetActive(true);
+            chair2.SetActive(true);
+            chair1.SetActive(false);
         }
     }
 }
