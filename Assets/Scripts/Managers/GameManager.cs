@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     [Header("Values")]
     [SerializeField] private int mainMoney;
     [SerializeField] private int levelId;
+
+    [Header("Lists")]
+    [SerializeField] List<DeskComponent> Desks;
+
+
     #endregion
 
     public virtual void Awake()
@@ -64,10 +69,15 @@ public class GameManager : MonoBehaviour
         mainMoney -= money;
         InterfaceManager.instance.UpdateMoney();
     }
+    GameObject desk;
     public void LevelUp()
     {
         LevelManager.instance.Levels.RemoveAt(0);
         levelId = LevelManager.instance.Levels[0].id;
         _slider.ResetLevelBar();
+        for (int i = 0; i <= Desks.Count; i++)
+        {
+            Desks[i].DeskAvailableControl();
+        }
     }
 }

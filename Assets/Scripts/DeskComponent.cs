@@ -11,6 +11,8 @@ public class DeskComponent : MonoBehaviour
     [SerializeField] private Mesh desk2;
 
     [SerializeField] private MeshFilter meshfilt;
+    [Header("Available Level")]
+    [SerializeField] private int avilableLevel;
     #endregion
     [Header("Base Panel")]
     public GameObject buyPanel;
@@ -81,6 +83,14 @@ public class DeskComponent : MonoBehaviour
             desk2NotAvailable.SetActive(true);
             chair2.SetActive(true);
             chair1.SetActive(false);
+        }
+    }
+
+    public void DeskAvailableControl()
+    {
+        if (LevelManager.instance.Levels[0].id == avilableLevel)
+        {
+            gameObject.SetActive(true);
         }
     }
 }
