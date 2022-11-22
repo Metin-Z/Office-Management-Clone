@@ -7,6 +7,7 @@ public class ButtonComponent : MonoBehaviour
     #region SerializeFields
     [SerializeField] private int level;
     [SerializeField] private int price;
+    [SerializeField] private int xp;
 
     #endregion
 
@@ -17,5 +18,9 @@ public class ButtonComponent : MonoBehaviour
     public int Getprice()
     {
         return price;
+    }
+    public int GetXP()
+    {
+        return xp;
     }
 }

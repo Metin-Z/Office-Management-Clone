@@ -5,12 +5,14 @@ using UnityEngine;
 public class DeskComponent : MonoBehaviour
 {
     #region SerializeFields
+    [Header("Meshs")]
     [SerializeField] private Mesh desk0;
     [SerializeField] private Mesh desk1;
     [SerializeField] private Mesh desk2;
 
     [SerializeField] private MeshFilter meshfilt;
     #endregion
+    [Header("Base Panel")]
     public GameObject buyPanel;
     public GameObject buyWorker;
     [Header("Desk Objects")]
@@ -52,13 +54,15 @@ public class DeskComponent : MonoBehaviour
     }
     public void UpgradeDesk(GameObject buttonComp)
     {
-        if (GameManager.instance.GetMoney() >= buttonComp.GetComponent<ButtonComponent>().Getprice())
+        buttonComp.TryGetComponent(out ButtonComponent button);
+        if (GameManager.instance.GetMoney() >= button.Getprice())
         {
-            deskLevel = buttonComp.GetComponent<ButtonComponent>().GetLevel();
-            levelControl();
+            deskLevel = button.GetLevel();
+            GameManager.instance.GetSlider().LevelBarUpdate(button.GetXP());
+            deskLevelControl();
         }
     }
-    public void levelControl()
+    public void deskLevelControl()
     {
         if (deskLevel == 1)
         {
