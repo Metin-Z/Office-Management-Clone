@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class DeskComponent : MonoBehaviour
 {
@@ -88,9 +89,14 @@ public class DeskComponent : MonoBehaviour
 
     public void DeskAvailableControl()
     {
-        if (LevelManager.instance.Levels[0].id == avilableLevel)
+        if (LevelManager.instance.Levels[0].id >= avilableLevel)
         {
             gameObject.SetActive(true);
+            transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
+            transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
+            ).SetEase(Ease.Linear);
+            //GameManager.instance.GetDesk().Remove(this);
+            GameManager.instance.GetNavmesh().BuildNavMesh();
         }
     }
 }

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 93791603}
   - component: {fileID: 93791602}
   - component: {fileID: 93791601}
+  - component: {fileID: 93791604}
   m_Layer: 0
   m_Name: Wall (7)
   m_TagString: Untagged
@@ -220,6 +221,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93791599}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &93791604
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93791599}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &278302539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +244,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -292,6 +314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closed_Desk_2
       objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
 --- !u!4 &278302540 stripped
@@ -307,6 +334,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -371,6 +403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Closed_Desk_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -546,6 +583,7 @@ GameObject:
   - component: {fileID: 335882318}
   - component: {fileID: 335882317}
   - component: {fileID: 335882316}
+  - component: {fileID: 335882319}
   m_Layer: 0
   m_Name: Wall (8)
   m_TagString: Untagged
@@ -631,6 +669,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335882314}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &335882319
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335882314}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +824,7 @@ GameObject:
   - component: {fileID: 480618576}
   - component: {fileID: 480618575}
   - component: {fileID: 480618574}
+  - component: {fileID: 480618577}
   m_Layer: 0
   m_Name: Wall (5)
   m_TagString: Untagged
@@ -855,6 +910,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480618572}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &480618577
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480618572}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &517761607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1113,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -1106,6 +1182,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Closed_Desk_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -1263,6 +1344,7 @@ GameObject:
   - component: {fileID: 778859103}
   - component: {fileID: 778859102}
   - component: {fileID: 778859101}
+  - component: {fileID: 778859104}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -1348,6 +1430,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778859099}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &778859104
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778859099}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &809283979 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
@@ -1652,6 +1750,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -1717,6 +1820,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closed_Desk_7
       objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
 --- !u!4 &995569050 stripped
@@ -1744,6 +1852,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -1809,6 +1922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closed_Desk_4
       objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
 --- !u!4 &1078487453 stripped
@@ -1829,6 +1947,7 @@ GameObject:
   - component: {fileID: 1113941595}
   - component: {fileID: 1113941594}
   - component: {fileID: 1113941593}
+  - component: {fileID: 1113941596}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -1914,6 +2033,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113941591}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1113941596
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113941591}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1123135465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1921,6 +2056,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -1986,6 +2126,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closed_Desk_3
       objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
 --- !u!4 &1123135466 stripped
@@ -2006,6 +2151,7 @@ GameObject:
   - component: {fileID: 1233918632}
   - component: {fileID: 1233918631}
   - component: {fileID: 1233918630}
+  - component: {fileID: 1233918633}
   m_Layer: 0
   m_Name: Wall (2)
   m_TagString: Untagged
@@ -2091,6 +2237,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233918628}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1233918633
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233918628}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1238433054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,6 +2341,7 @@ GameObject:
   - component: {fileID: 1241300179}
   - component: {fileID: 1241300178}
   - component: {fileID: 1241300177}
+  - component: {fileID: 1241300180}
   m_Layer: 0
   m_Name: Wall (6)
   m_TagString: Untagged
@@ -2264,6 +2427,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241300175}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1241300180
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241300175}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1250533955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,6 +2531,7 @@ GameObject:
   - component: {fileID: 1282060832}
   - component: {fileID: 1282060831}
   - component: {fileID: 1282060830}
+  - component: {fileID: 1282060833}
   m_Layer: 0
   m_Name: Wall (4)
   m_TagString: Untagged
@@ -2437,6 +2617,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282060828}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1282060833
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282060828}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1294365363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2645,7 @@ GameObject:
   - component: {fileID: 1294365367}
   - component: {fileID: 1294365366}
   - component: {fileID: 1294365365}
+  - component: {fileID: 1294365368}
   m_Layer: 0
   m_Name: Wall (11)
   m_TagString: Untagged
@@ -2534,6 +2731,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294365363}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1294365368
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294365363}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1375706088
 GameObject:
   m_ObjectHideFlags: 0
@@ -2581,6 +2794,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -2646,6 +2864,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closed_Desk_5
       objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
 --- !u!4 &1443264533 stripped
@@ -2666,6 +2889,7 @@ GameObject:
   - component: {fileID: 1485360182}
   - component: {fileID: 1485360181}
   - component: {fileID: 1485360180}
+  - component: {fileID: 1485360183}
   m_Layer: 0
   m_Name: Wall (9)
   m_TagString: Untagged
@@ -2751,6 +2975,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485360178}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1485360183
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485360178}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1499520245
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,6 +3146,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -2970,6 +3215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Closed_Desk_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -3046,6 +3296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600755978}
   - component: {fileID: 1600755977}
+  - component: {fileID: 1600755979}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3067,6 +3318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 5276352950280505763}
   _slider: {fileID: 1719206538}
+  _navmesh: {fileID: 1600755979}
   mainMoney: 0
   levelId: 0
   Desks:
@@ -3094,6 +3346,35 @@ Transform:
   m_Father: {fileID: 978778944}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600755979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600755976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.1
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 6a2cc61798710304d8a02da99fbcfecf, type: 2}
 --- !u!1 &1628264801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,6 +3512,7 @@ GameObject:
   - component: {fileID: 1670609227}
   - component: {fileID: 1670609226}
   - component: {fileID: 1670609225}
+  - component: {fileID: 1670609228}
   m_Layer: 0
   m_Name: Wall (10)
   m_TagString: Untagged
@@ -3316,6 +3598,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670609223}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1670609228
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670609223}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1719206536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +4109,7 @@ GameObject:
   - component: {fileID: 1894406823}
   - component: {fileID: 1894406822}
   - component: {fileID: 1894406821}
+  - component: {fileID: 1894406824}
   m_Layer: 0
   m_Name: Wall (3)
   m_TagString: Untagged
@@ -3896,6 +4195,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894406819}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1894406824
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894406819}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &2079806278 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
@@ -5879,6 +6194,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1375706089}
     m_Modifications:
+    - target: {fileID: 1311977011683139478, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
       propertyPath: avilableLevel
@@ -5943,6 +6263,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Closed_Desk_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373511808687360662, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
