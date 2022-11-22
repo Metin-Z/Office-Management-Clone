@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class DeskComponent : MonoBehaviour
 {
+    [Header("Base Panel")]
+    public GameObject buyPanel;
     #region SerializeFields
     [Header("Meshs")]
     [SerializeField] private Mesh desk0;
@@ -15,9 +17,19 @@ public class DeskComponent : MonoBehaviour
     [Header("Available Level")]
     [SerializeField] private int avilableLevel;
     #endregion
-    [Header("Base Panel")]
-    public GameObject buyPanel;
+
+    [Header("Worker Objects")]
     public GameObject buyWorker;
+
+    public int workerLevel;
+
+    public Transform workerSpawnPos;
+
+    public GameObject worker0;
+    public GameObject worker1;
+    public GameObject worker2;
+
+
     [Header("Desk Objects")]
     public int deskLevel;
 
@@ -47,6 +59,24 @@ public class DeskComponent : MonoBehaviour
             buyPanel.SetActive(false);
         }
     }
+    public void OpenWorkerPanel()
+    {
+        buyWorker.SetActive(true);
+    }
+    public void CloseWorkerPanel()
+    {
+        buyWorker.SetActive(false);
+    }
+    public void UpgradeWorker(GameObject buttonComp)
+    {
+        buttonComp.TryGetComponent(out ButtonComponent button);
+        if (GameManager.instance.GetMoney() >= button.Getprice())
+        {
+            workerLevel = button.GetLevel();
+            GameManager.instance.GetSlider().LevelBarUpdate(button.GetXP());
+            workerLevelControl();
+        }
+    }
     public void OpenDeskPanel()
     {
         buyDesk.SetActive(true);
@@ -63,6 +93,14 @@ public class DeskComponent : MonoBehaviour
             deskLevel = button.GetLevel();
             GameManager.instance.GetSlider().LevelBarUpdate(button.GetXP());
             deskLevelControl();
+        }
+    }
+
+    public void workerLevelControl()
+    {
+        if (workerLevel == 1)
+        {
+            Instantiate(worker0, workerSpawnPos);
         }
     }
     public void deskLevelControl()
