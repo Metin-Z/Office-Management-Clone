@@ -32,6 +32,6 @@ public class InterfaceManager : MonoBehaviour
     } 
     public void UpdateMoney()
     {
-        mainMoney_TXT.text = $"${GameManager.instance.GetMoney()}";
+        mainMoney_TXT.text = $"${PlayerPrefs.GetInt("Money")}";
     }
 }

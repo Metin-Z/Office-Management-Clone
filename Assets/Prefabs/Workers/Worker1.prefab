@@ -227,7 +227,7 @@ MonoBehaviour:
   workBar: {fileID: 0}
   myLevel: 0
   startLevel: 0
-  jobTime: 10
+  jobTime: 90
   energy: 180
   baseJobTime: 0
 --- !u!1 &1430585873912038763

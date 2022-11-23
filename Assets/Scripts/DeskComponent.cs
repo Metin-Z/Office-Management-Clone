@@ -166,4 +166,3 @@ public class DeskComponent : MonoBehaviour
         alredySpawned = true;
     }
 }
-

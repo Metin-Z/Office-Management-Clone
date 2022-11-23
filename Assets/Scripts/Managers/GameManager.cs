@@ -40,6 +40,13 @@ public class GameManager : MonoBehaviour
     {
         levelId = 1;
         DeskControl();
+        mainMoney = PlayerPrefs.GetInt("Money");
+        if (PlayerPrefs.GetInt("Money") == 0)
+        {
+            mainMoney = 150;
+            PlayerPrefs.SetInt("Money", mainMoney);
+            InterfaceManager.instance.UpdateMoney();
+        }
     }
     private void Update()
     {
@@ -77,12 +84,14 @@ public class GameManager : MonoBehaviour
     public void IncreaseMoney(int money)
     {
         mainMoney += money;
+        PlayerPrefs.SetInt("Money", mainMoney);
         InterfaceManager.instance.UpdateMoney();
     }
 
     public void DecreaseMoney(int money)
     {
         mainMoney -= money;
+        PlayerPrefs.SetInt("Money", mainMoney);
         InterfaceManager.instance.UpdateMoney();
     }
     public void LevelUp()

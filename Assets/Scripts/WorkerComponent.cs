@@ -28,6 +28,8 @@ public class WorkerComponent : MonoBehaviour
         energyBar = desk.energyBar;
         workBar = desk.workBar;
         baseJobTime = jobTime;
+        workBar.maxValue = jobTime;
+        workBar.value = jobTime;
         StartCoroutine(Work());
     }
     public void GetMyDesk(GameObject desk)
