@@ -20,41 +20,41 @@ public class DeskComponent : MonoBehaviour
     #endregion
 
     [Header("Worker Objects")]
-    public GameObject buyWorker;
+    [SerializeField] private GameObject buyWorker;
 
-    public GameObject worker0Available;
-    public GameObject worker1Available;
-    public GameObject worker2Available;
+    [SerializeField] private GameObject worker0Available;
+    [SerializeField] private GameObject worker1Available;
+    [SerializeField] private GameObject worker2Available;
 
     public int workerLevel;
 
-    public GameObject bars;
+    [SerializeField] private GameObject bars;
 
     public Slider workBar;
     public Slider energyBar;
 
-    public GameObject workerSpawnPos;
+    [SerializeField] private GameObject workerSpawnPos;
 
-    public GameObject worker0;
-    public GameObject worker1;
-    public GameObject worker2;
+    [SerializeField] private GameObject worker0;
+    [SerializeField] private GameObject worker1;
+    [SerializeField] private GameObject worker2;
 
-    public GameObject activeWorker;
+    [SerializeField] private GameObject activeWorker;
 
     [Header("Desk Objects")]
-    public int deskLevel;
+    [SerializeField] private int deskLevel;
 
-    public bool alredySpawned;
-    public GameObject buyDesk;
+    [SerializeField] private bool alredySpawned;
+    [SerializeField] private GameObject buyDesk;
 
-    public GameObject desk1Available;
-    public GameObject desk1NotAvailable;
+    [SerializeField] private GameObject desk1Available;
+    [SerializeField] private GameObject desk1NotAvailable;
 
-    public GameObject desk2Available;
-    public GameObject desk2NotAvailable;
+    [SerializeField] private GameObject desk2Available;
+    [SerializeField] private GameObject desk2NotAvailable;
 
-    public GameObject chair1;
-    public GameObject chair2;
+    [SerializeField] private GameObject chair1;
+    [SerializeField] private GameObject chair2;
 
     private void OnTriggerEnter(Collider other)
     {
