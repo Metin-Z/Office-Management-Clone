@@ -25,8 +25,6 @@ public class SliderComponent : MonoBehaviour
     public void ResetLevelBar()
     {
         _slider.value = 0;
-
-        Debug.Log("RESETLEVELBAR");
         int currentLevel = LevelManager.instance.Levels[0].id;
         int nextLevel = LevelManager.instance.Levels[0].id + 1;
 

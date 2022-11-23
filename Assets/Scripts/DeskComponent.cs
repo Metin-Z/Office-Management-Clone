@@ -21,21 +21,28 @@ public class DeskComponent : MonoBehaviour
     [Header("Worker Objects")]
     public GameObject buyWorker;
 
+    public GameObject worker0Available;
+    public GameObject worker1Available;
+    public GameObject worker2Available;
+
     public int workerLevel;
 
-    public Transform workerSpawnPos;
+    public GameObject bars;
+
+    public GameObject workerSpawnPos;
 
     public GameObject worker0;
     public GameObject worker1;
     public GameObject worker2;
 
+    public GameObject activeWorker;
 
     [Header("Desk Objects")]
     public int deskLevel;
 
-
+    public bool alredySpawned;
     public GameObject buyDesk;
-    
+
     public GameObject desk1Available;
     public GameObject desk1NotAvailable;
 
@@ -74,7 +81,7 @@ public class DeskComponent : MonoBehaviour
         {
             workerLevel = button.GetLevel();
             GameManager.instance.GetSlider().LevelBarUpdate(button.GetXP());
-            workerLevelControl();
+            workerLevelControl(buttonComp);
         }
     }
     public void OpenDeskPanel()
@@ -92,16 +99,37 @@ public class DeskComponent : MonoBehaviour
         {
             deskLevel = button.GetLevel();
             GameManager.instance.GetSlider().LevelBarUpdate(button.GetXP());
+            StartCoroutine(DeskSpawnTimer());
             deskLevelControl();
         }
     }
 
-    public void workerLevelControl()
+    public void workerLevelControl(GameObject buttonComp)
     {
+        buttonComp.TryGetComponent(out ButtonComponent button);
         if (workerLevel == 1)
         {
-            Instantiate(worker0, workerSpawnPos);
+            activeWorker = Instantiate(worker0, workerSpawnPos.transform);
+            GameManager.instance.DecreaseMoney(button.Getprice());
+            ClosePanels();
+            bars.SetActive(true);
         }
+        if (workerLevel == 2)
+        {
+            activeWorker = Instantiate(worker1, workerSpawnPos.transform);
+            GameManager.instance.DecreaseMoney(button.Getprice());
+            ClosePanels();
+            bars.SetActive(true);
+        }
+        if (workerLevel == 3)
+        {
+            activeWorker = Instantiate(worker2, workerSpawnPos.transform);
+            GameManager.instance.DecreaseMoney(button.Getprice());
+            ClosePanels();
+            bars.SetActive(true);
+        }
+        activeWorker.TryGetComponent(out WorkerComponent workerComp);
+        workerComp.GetMyDesk(gameObject);
     }
     public void deskLevelControl()
     {
@@ -127,7 +155,7 @@ public class DeskComponent : MonoBehaviour
 
     public void DeskAvailableControl()
     {
-        if (LevelManager.instance.Levels[0].id >= avilableLevel)
+        if (LevelManager.instance.Levels[0].id >= avilableLevel && alredySpawned == false)
         {
             gameObject.SetActive(true);
             transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
@@ -137,4 +165,16 @@ public class DeskComponent : MonoBehaviour
             GameManager.instance.GetNavmesh().BuildNavMesh();
         }
     }
+    public void ClosePanels()
+    {
+        worker0Available.SetActive(false);
+        worker1Available.SetActive(false);
+        worker2Available.SetActive(false);
+    }
+    public IEnumerator DeskSpawnTimer()
+    {
+        yield return new WaitForSeconds(2.5f);
+        alredySpawned = true;
+    }
 }
+
