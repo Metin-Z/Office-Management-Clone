@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class DeskComponent : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class DeskComponent : MonoBehaviour
     public int workerLevel;
 
     public GameObject bars;
+
+    public Slider workBar;
+    public Slider energyBar;
 
     public GameObject workerSpawnPos;
 
