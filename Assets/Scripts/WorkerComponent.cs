@@ -28,6 +28,7 @@ public class WorkerComponent : MonoBehaviour
         energyBar = desk.energyBar;
         workBar = desk.workBar;
         baseJobTime = jobTime;
+        StartCoroutine(Work());
     }
     public void GetMyDesk(GameObject desk)
     {
@@ -44,26 +45,31 @@ public class WorkerComponent : MonoBehaviour
     {
         if (LevelManager.instance.Levels[0].id == startLevel + 2)
         {
-            myLevel++;
-            Instantiate(levelUpEffects, transform.position, Quaternion.identity);
+            if (myLevel <3)
+            {
+                myLevel++;
+                Instantiate(levelUpEffects, transform.position, Quaternion.identity);
+            }
         }
     }
 
     public IEnumerator Work()
     {
-        if (energy > 0)
+        while (energy > 0)
         {
-            while (jobTime > 0)
+            energy--;
+            energyBar.value = energy;
+
+            if (jobTime > 0)
             {
                 jobTime -= myLevel;
-                energy--;
-
                 workBar.value = jobTime;
-                energyBar.value = energy;
 
                 if (0 >= jobTime)
                 {
-
+                    Debug.Log("asdsad");
+                    StopCoroutine(Work());
+                    WorkCompleted();
                 }
                 yield return new WaitForSeconds(1);
             }
@@ -76,6 +82,5 @@ public class WorkerComponent : MonoBehaviour
         GameManager.instance.IncreaseMoney(30);
         GameManager.instance.GetSlider().LevelBarUpdate(15);
 
-        StartCoroutine(Work());
     }
 }
