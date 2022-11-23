@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Lists")]
     [SerializeField] List<DeskComponent> Desks;
+    [SerializeField] List<WorkerComponent> Workers;
 
 
     #endregion
@@ -65,6 +66,10 @@ public class GameManager : MonoBehaviour
     {
         return Desks;
     }
+    public List<WorkerComponent> GetWorkers()
+    {
+        return Workers;
+    } 
     public NavMeshSurface GetNavmesh()
     {
         return _navmesh;
@@ -89,6 +94,13 @@ public class GameManager : MonoBehaviour
         {
             Desks[i].DeskAvailableControl();
         }
+
+        for (int i = 0; i < Workers.Count; i++)
+        {
+            Workers[i].LevelControl();
+        }
+
+
     }
     public void DeskControl()
     {

@@ -150,6 +150,9 @@ MonoBehaviour:
   level: 3
   price: 100
   xp: 20
+  worker: {fileID: 8567706306738828243, guid: 3fea61cf4778f214f9c0f880a982a782, type: 3}
+  worker1: {fileID: 0}
+  worker2: {fileID: 0}
 --- !u!1 &203261447239721193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1761,9 @@ MonoBehaviour:
   level: 2
   price: 75
   xp: 15
+  worker: {fileID: 0}
+  worker1: {fileID: 0}
+  worker2: {fileID: 0}
 --- !u!1 &2615000763971286124
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,6 +2942,9 @@ MonoBehaviour:
   level: 1
   price: 25
   xp: 5
+  worker: {fileID: 4384018965159166229, guid: bfa1f532c15d5dd4ca9248da25455cde, type: 3}
+  worker1: {fileID: 0}
+  worker2: {fileID: 0}
 --- !u!1 &3155721785840608977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,6 +3095,9 @@ MonoBehaviour:
   level: 1
   price: 25
   xp: 5
+  worker: {fileID: 0}
+  worker1: {fileID: 0}
+  worker2: {fileID: 0}
 --- !u!1 &3334356394280489742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,6 +3367,7 @@ MonoBehaviour:
   worker2: {fileID: 8567706306738828243, guid: 3fea61cf4778f214f9c0f880a982a782, type: 3}
   activeWorker: {fileID: 0}
   deskLevel: 0
+  alredySpawned: 0
   buyDesk: {fileID: 2021138698941060756}
   desk1Available: {fileID: 6744201878001195209}
   desk1NotAvailable: {fileID: 2803399033709613709}
@@ -7326,6 +7339,9 @@ MonoBehaviour:
   level: 2
   price: 75
   xp: 15
+  worker: {fileID: 766298559470752897, guid: 0d396a34d4d25de469c5ab1b912f0df5, type: 3}
+  worker1: {fileID: 0}
+  worker2: {fileID: 0}
 --- !u!1 &9045113943312904649
 GameObject:
   m_ObjectHideFlags: 0

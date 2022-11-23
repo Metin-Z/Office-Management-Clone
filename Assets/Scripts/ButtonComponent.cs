@@ -5,9 +5,17 @@ using UnityEngine;
 public class ButtonComponent : MonoBehaviour
 {
     #region SerializeFields
+    [Header("Values")]
+
     [SerializeField] private int level;
     [SerializeField] private int price;
     [SerializeField] private int xp;
+
+    [Header("Workers")]
+    [SerializeField] private GameObject worker;
+    [SerializeField] private GameObject worker1;
+    [SerializeField] private GameObject worker2;
+
 
     #endregion
 
@@ -22,5 +30,9 @@ public class ButtonComponent : MonoBehaviour
     public int GetXP()
     {
         return xp;
+    }
+    public GameObject GetWorker()
+    {
+        return worker;
     }
 }

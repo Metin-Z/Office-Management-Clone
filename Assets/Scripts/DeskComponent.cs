@@ -107,27 +107,12 @@ public class DeskComponent : MonoBehaviour
     public void workerLevelControl(GameObject buttonComp)
     {
         buttonComp.TryGetComponent(out ButtonComponent button);
-        if (workerLevel == 1)
-        {
-            activeWorker = Instantiate(worker0, workerSpawnPos.transform);
-            GameManager.instance.DecreaseMoney(button.Getprice());
-            ClosePanels();
-            bars.SetActive(true);
-        }
-        if (workerLevel == 2)
-        {
-            activeWorker = Instantiate(worker1, workerSpawnPos.transform);
-            GameManager.instance.DecreaseMoney(button.Getprice());
-            ClosePanels();
-            bars.SetActive(true);
-        }
-        if (workerLevel == 3)
-        {
-            activeWorker = Instantiate(worker2, workerSpawnPos.transform);
-            GameManager.instance.DecreaseMoney(button.Getprice());
-            ClosePanels();
-            bars.SetActive(true);
-        }
+
+        activeWorker = Instantiate(button.GetWorker(), workerSpawnPos.transform);
+        GameManager.instance.DecreaseMoney(button.Getprice());
+        ClosePanels();
+        bars.SetActive(true);
+
         activeWorker.TryGetComponent(out WorkerComponent workerComp);
         workerComp.GetMyDesk(gameObject);
     }
