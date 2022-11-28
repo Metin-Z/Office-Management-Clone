@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-
+using System.IO;
 public class DeskComponent : MonoBehaviour
 {
-    
+
     [Header("Base Panel")]
     public GameObject buyPanel;
+    [SerializeField] private string dataKey;
+    [SerializeField] private DeskSave desk;
     #region SerializeFields
     [Header("Meshs")]
     [SerializeField] private Mesh desk0;
@@ -18,7 +20,7 @@ public class DeskComponent : MonoBehaviour
     [SerializeField] private MeshFilter meshfilt;
     [Header("Available Level")]
     [SerializeField] private int avilableLevel;
-  
+
     #endregion
     #region Worker
     [Header("Worker Objects")]
@@ -68,11 +70,8 @@ public class DeskComponent : MonoBehaviour
     }
     private void Start()
     {
-        gameObject.SetActive(true);
-        transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
-        transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
-        ).SetEase(Ease.Linear);
-        GameManager.instance.GetNavmesh().BuildNavMesh();
+        Scale();
+        JsonLoad();
     }
     private void OnTriggerExit(Collider other)
     {
@@ -129,6 +128,7 @@ public class DeskComponent : MonoBehaviour
 
         activeWorker.TryGetComponent(out WorkerComponent workerComp);
         workerComp.GetMyDesk(gameObject);
+        JsonSave(dataKey, deskLevel, workerComp.GetMyBaseLevel(), workerLevel);
     }
     public void deskLevelControl()
     {
@@ -150,12 +150,12 @@ public class DeskComponent : MonoBehaviour
             chair2.SetActive(true);
             chair1.SetActive(false);
         }
+        JsonSave(dataKey, deskLevel, workerLevel, workerLevel);
     }
     public void DeskAvailableControl()
     {
         if (LevelManager.instance.Levels[0].id >= avilableLevel && alredySpawned == false)
         {
-            Debug.Log("famanas");
             transform.TryGetComponent(out BoxCollider collider);
             collider.enabled = true;
         }
@@ -166,5 +166,73 @@ public class DeskComponent : MonoBehaviour
         worker1Available.SetActive(false);
         worker2Available.SetActive(false);
     }
-    
+    public void Scale()
+    {
+        gameObject.SetActive(true);
+        transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
+        transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
+        ).SetEase(Ease.Linear);
+        GameManager.instance.GetNavmesh().BuildNavMesh();
+    }
+    public void JsonSave(string dataKey, int deskLevel, int workerStartLevel, int workerEndLevel)
+    {
+        desk = new DeskSave(dataKey, deskLevel, workerStartLevel, workerEndLevel);
+        string jsonString = JsonUtility.ToJson(desk);
+        File.WriteAllText(Application.dataPath + "/Saves/" + dataKey + ".json", jsonString);
+    }
+    public void JsonLoad()
+    {
+        string path = Application.dataPath + "/Saves/" + dataKey + ".json";
+        if (File.Exists(path))
+        {
+            Debug.Log("Upload");
+            string jsonUpload = File.ReadAllText(path);
+            DeskSave deskSave = JsonUtility.FromJson<DeskSave>(jsonUpload);
+            if (deskSave.deskLevel == 1)
+            {
+                meshfilt.mesh = desk1;
+                desk1Available.SetActive(false);
+                desk1NotAvailable.SetActive(true);
+                chair1.SetActive(true);
+                chair2.SetActive(false);
+            }
+            if (deskSave.deskLevel == 2)
+            {
+                meshfilt.mesh = desk2;
+                desk1Available.SetActive(false);
+                desk1NotAvailable.SetActive(true);
+                desk2Available.SetActive(false);
+                desk2NotAvailable.SetActive(true);
+                chair2.SetActive(true);
+            }
+            
+            if (deskSave.workerStartLevel == 1)
+            {
+                activeWorker = Instantiate(worker0, workerSpawnPos.transform);
+                activeWorker.TryGetComponent(out WorkerComponent workerComp);
+                bars.SetActive(true);
+                ClosePanels();
+                workerComp.GetMyDesk(transform.gameObject);
+                workerComp.ReloadLevel(deskSave.workerLastLevel);
+            }
+            if (deskSave.workerStartLevel == 2)
+            {
+                activeWorker = Instantiate(worker1, workerSpawnPos.transform);
+                activeWorker.TryGetComponent(out WorkerComponent workerComp);
+                bars.SetActive(true);
+                ClosePanels();
+                workerComp.GetMyDesk(transform.gameObject);
+                workerComp.ReloadLevel(deskSave.workerLastLevel);
+            }
+            if (deskSave.workerStartLevel == 3)
+            {
+                activeWorker = Instantiate(worker2, workerSpawnPos.transform);
+                activeWorker.TryGetComponent(out WorkerComponent workerComp);
+                bars.SetActive(true);
+                ClosePanels();
+                workerComp.GetMyDesk(transform.gameObject);
+                workerComp.ReloadLevel(deskSave.workerLastLevel);
+            }
+        }
+    }
 }

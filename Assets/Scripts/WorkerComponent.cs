@@ -15,6 +15,7 @@ public class WorkerComponent : MonoBehaviour
 
     [Header("Values")]
     [SerializeField] int myLevel;
+    [SerializeField] int myBaseLevel;
     [SerializeField] int startLevel;
     [SerializeField] int jobTime;
     [SerializeField] int energy;
@@ -43,6 +44,10 @@ public class WorkerComponent : MonoBehaviour
         myDesk.TryGetComponent(out DeskComponent desk);
         myLevel = desk.workerLevel;
     }
+    public int GetMyBaseLevel()
+    {
+        return myBaseLevel = myLevel;
+    }
     public void LevelControl()
     {
         if (LevelManager.instance.Levels[0].id == startLevel + 2)
@@ -55,6 +60,10 @@ public class WorkerComponent : MonoBehaviour
         }
     }
 
+    public void ReloadLevel(int myLevelReload)
+    {
+        myLevel = myLevelReload;
+    }
     public IEnumerator Work()
     {
         while (energy > 0)

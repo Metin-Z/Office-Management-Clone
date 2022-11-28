@@ -251,6 +251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
+      propertyPath: dataKey
+      value: desk_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
       propertyPath: avilableLevel
       value: 2
       objectReference: {fileID: 0}
@@ -319,6 +324,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
 --- !u!4 &278302540 stripped
@@ -338,6 +348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: desk_08
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
@@ -408,6 +423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -1230,6 +1250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
+      propertyPath: dataKey
+      value: desk_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
       propertyPath: avilableLevel
       value: 3
       objectReference: {fileID: 0}
@@ -1297,6 +1322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -1867,6 +1897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
+      propertyPath: dataKey
+      value: desk_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
       propertyPath: avilableLevel
       value: 3
       objectReference: {fileID: 0}
@@ -1935,6 +1970,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
 --- !u!4 &995569050 stripped
@@ -1966,6 +2006,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: desk_04
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
@@ -2036,6 +2081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -2173,6 +2223,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
+      propertyPath: dataKey
+      value: desk_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
       propertyPath: avilableLevel
       value: 2
       objectReference: {fileID: 0}
@@ -2240,6 +2295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -2911,6 +2971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
+      propertyPath: dataKey
+      value: desk_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
       propertyPath: avilableLevel
       value: 3
       objectReference: {fileID: 0}
@@ -2978,6 +3043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -3263,6 +3333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
+      propertyPath: dataKey
+      value: desk_09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
       propertyPath: avilableLevel
       value: 3
       objectReference: {fileID: 0}
@@ -3330,6 +3405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
@@ -6313,6 +6393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
         type: 3}
+      propertyPath: dataKey
+      value: desk_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716808100350691565, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
       propertyPath: avilableLevel
       value: 1
       objectReference: {fileID: 0}
@@ -6380,6 +6465,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6945260230534417603, guid: 3774cb250694fe945a6b5ba7cf321551,
+        type: 3}
+      propertyPath: dataKey
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3774cb250694fe945a6b5ba7cf321551, type: 3}
