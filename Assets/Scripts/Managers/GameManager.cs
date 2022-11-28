@@ -47,6 +47,14 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Money", mainMoney);
             InterfaceManager.instance.UpdateMoney();
         }
+        for (int i = 0; i < PlayerPrefs.GetInt("level") - 1; i++)
+        {
+            LevelManager.instance.Levels.RemoveAt(0);
+        }
+        for (int i = 0; i < Desks.Count; i++)
+        {
+            Desks[i].DeskAvailableControl();
+        }
     }
     private void Update()
     {
@@ -98,18 +106,17 @@ public class GameManager : MonoBehaviour
     {
         LevelManager.instance.Levels.RemoveAt(0);
         levelId = LevelManager.instance.Levels[0].id;
+        PlayerPrefs.SetInt("level",levelId);
         _slider.ResetLevelBar();
+        
         for (int i = 0; i < Desks.Count; i++)
         {
             Desks[i].DeskAvailableControl();
         }
-
         for (int i = 0; i < Workers.Count; i++)
         {
             Workers[i].LevelControl();
         }
-
-
     }
     public void DeskControl()
     {

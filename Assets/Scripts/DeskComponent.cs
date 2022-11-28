@@ -80,6 +80,14 @@ public class DeskComponent : MonoBehaviour
             buyPanel.SetActive(false);
         }
     }
+    public string GetDataKey()
+    {
+        return dataKey;
+    }
+    public int GetDeskLevel()
+    {
+        return deskLevel;
+    }
     public void OpenWorkerPanel()
     {
         buyWorker.SetActive(true);

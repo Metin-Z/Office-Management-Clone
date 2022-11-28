@@ -21,6 +21,7 @@ public class SliderComponent : MonoBehaviour
         nextLevelTXT.text = nextLevel.ToString(); 
 
         _slider.maxValue = LevelManager.instance.Levels[0].xp;
+        _slider.value = PlayerPrefs.GetFloat("levelProgress");
     }
     public void ResetLevelBar()
     {
@@ -36,6 +37,7 @@ public class SliderComponent : MonoBehaviour
     public void LevelBarUpdate(int xp)
     {
        _slider.value = _slider.value + xp;
+        PlayerPrefs.SetFloat("levelProgress",_slider.value);
         if (_slider.value >= _slider.maxValue)
         {
             GameManager.instance.LevelUp();

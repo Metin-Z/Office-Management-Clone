@@ -55,9 +55,15 @@ public class WorkerComponent : MonoBehaviour
             if (myLevel <3)
             {
                 myLevel++;
+                SaveWorker();
                 Instantiate(levelUpEffects, transform.position, Quaternion.identity);
             }
         }
+    }
+    public void SaveWorker()
+    {
+        myDesk.TryGetComponent(out DeskComponent desk);
+        desk.JsonSave(desk.GetDataKey(), desk.GetDeskLevel(), myBaseLevel, myLevel);
     }
 
     public void ReloadLevel(int myLevelReload)
@@ -78,7 +84,6 @@ public class WorkerComponent : MonoBehaviour
 
                 if (0 >= jobTime)
                 {
-                    Debug.Log("asdsad");
                     StopCoroutine(Work());
                     WorkCompleted();
                 }
