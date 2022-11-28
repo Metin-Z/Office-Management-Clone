@@ -1466,6 +1466,7 @@ MonoBehaviour:
   energyBar: {fileID: 0}
   workBar: {fileID: 0}
   myLevel: 0
+  myBaseLevel: 3
   startLevel: 0
   jobTime: 90
   energy: 180

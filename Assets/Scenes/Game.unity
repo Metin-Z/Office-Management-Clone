@@ -3615,6 +3615,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08beb627f5137ed48acc2c1826da3a60, type: 2}
   - {fileID: 11400000, guid: af9192d45b6169d439ac39d72b921b52, type: 2}
   - {fileID: 11400000, guid: 51939b14c65fb1640a854b81ec6e67d6, type: 2}
+  - {fileID: 11400000, guid: 52209cff2fd2aee469f91e0d89e8fbda, type: 2}
+  - {fileID: 11400000, guid: f064d759ce95f8b49b8158db0dd35c55, type: 2}
+  - {fileID: 11400000, guid: a577e8b6056ccfb438a155b69f77c6ea, type: 2}
+  - {fileID: 11400000, guid: 158e42cf958e51548b3518cde6332d3e, type: 2}
+  - {fileID: 11400000, guid: 1628e258b8195014a97d29792903dcc2, type: 2}
+  - {fileID: 11400000, guid: 66559e463eeb39e47b7363aea16939b4, type: 2}
 --- !u!1 &1666982872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3938,7 +3944,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765649074}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.0000000074505797, z: 0.000000005587935, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

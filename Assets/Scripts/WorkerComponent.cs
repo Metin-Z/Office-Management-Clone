@@ -46,7 +46,7 @@ public class WorkerComponent : MonoBehaviour
     }
     public int GetMyBaseLevel()
     {
-        return myBaseLevel = myLevel;
+        return myBaseLevel;
     }
     public void LevelControl()
     {
@@ -55,6 +55,7 @@ public class WorkerComponent : MonoBehaviour
             if (myLevel <3)
             {
                 myLevel++;
+                startLevel = LevelManager.instance.Levels[0].id;
                 SaveWorker();
                 Instantiate(levelUpEffects, transform.position, Quaternion.identity);
             }
