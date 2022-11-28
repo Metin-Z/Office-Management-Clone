@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DeskComponent : MonoBehaviour
 {
+    
     [Header("Base Panel")]
     public GameObject buyPanel;
     #region SerializeFields
@@ -17,8 +18,9 @@ public class DeskComponent : MonoBehaviour
     [SerializeField] private MeshFilter meshfilt;
     [Header("Available Level")]
     [SerializeField] private int avilableLevel;
+  
     #endregion
-
+    #region Worker
     [Header("Worker Objects")]
     [SerializeField] private GameObject buyWorker;
 
@@ -40,7 +42,8 @@ public class DeskComponent : MonoBehaviour
     [SerializeField] private GameObject worker2;
 
     [SerializeField] private GameObject activeWorker;
-
+    #endregion
+    #region Desk
     [Header("Desk Objects")]
     [SerializeField] private int deskLevel;
 
@@ -55,13 +58,21 @@ public class DeskComponent : MonoBehaviour
 
     [SerializeField] private GameObject chair1;
     [SerializeField] private GameObject chair2;
-
+    #endregion
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             buyPanel.SetActive(true);
         }
+    }
+    private void Start()
+    {
+        gameObject.SetActive(true);
+        transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
+        transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
+        ).SetEase(Ease.Linear);
+        GameManager.instance.GetNavmesh().BuildNavMesh();
     }
     private void OnTriggerExit(Collider other)
     {
@@ -103,7 +114,6 @@ public class DeskComponent : MonoBehaviour
         {
             deskLevel = button.GetLevel();
             GameManager.instance.GetSlider().LevelBarUpdate(button.GetXP());
-            StartCoroutine(DeskSpawnTimer());
             deskLevelControl();
         }
     }
@@ -141,17 +151,13 @@ public class DeskComponent : MonoBehaviour
             chair1.SetActive(false);
         }
     }
-
     public void DeskAvailableControl()
     {
         if (LevelManager.instance.Levels[0].id >= avilableLevel && alredySpawned == false)
         {
-            gameObject.SetActive(true);
-            transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
-            transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
-            ).SetEase(Ease.Linear);
-            //GameManager.instance.GetDesk().Remove(this);
-            GameManager.instance.GetNavmesh().BuildNavMesh();
+            Debug.Log("famanas");
+            transform.TryGetComponent(out BoxCollider collider);
+            collider.enabled = true;
         }
     }
     public void ClosePanels()
@@ -160,9 +166,5 @@ public class DeskComponent : MonoBehaviour
         worker1Available.SetActive(false);
         worker2Available.SetActive(false);
     }
-    public IEnumerator DeskSpawnTimer()
-    {
-        yield return new WaitForSeconds(2.5f);
-        alredySpawned = true;
-    }
+    
 }
