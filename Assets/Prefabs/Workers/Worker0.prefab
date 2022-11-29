@@ -731,6 +731,8 @@ MonoBehaviour:
   myDesk: {fileID: 0}
   levelUpEffects: {fileID: 4290128150764431029, guid: f1dcb77f4de63fd4daf676cc267812fe,
     type: 3}
+  navMeshAgent: {fileID: 4007353376107076525}
+  anim: {fileID: 4007353376107076524}
   energyBar: {fileID: 0}
   workBar: {fileID: 0}
   myLevel: 0
@@ -739,6 +741,7 @@ MonoBehaviour:
   jobTime: 90
   energy: 180
   baseJobTime: 0
+  inBreak: 0
 --- !u!65 &-6264364701337347993
 BoxCollider:
   m_ObjectHideFlags: 0

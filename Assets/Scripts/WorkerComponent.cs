@@ -73,6 +73,8 @@ public class WorkerComponent : MonoBehaviour
     {
         Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
         inBreak = true;
+        BreakControl();
+        navMeshAgent.enabled = true;
         navMeshAgent.SetDestination(target);
     }
     public void LevelControl()
