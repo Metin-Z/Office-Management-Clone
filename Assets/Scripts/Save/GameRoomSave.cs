@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameRoomSave : MonoBehaviour
+[System.Serializable]
+public class GameRoomSave
 {
     public string dataKey;
     public int deskLevel;

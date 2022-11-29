@@ -43,10 +43,12 @@ public class WorkerComponent : MonoBehaviour
     {
         if (inBreak == false)
         {
+            energy = 180;
             anim.SetBool("Work", true);
         }
         if (inBreak == true)
         {
+            energy = 0;
             anim.SetBool("Work", false);
         }
     }
@@ -69,19 +71,34 @@ public class WorkerComponent : MonoBehaviour
     {
         return inBreak;
     }
-    public void StartBreak()
+    public void SetBreakCoroutine()
     {
-        Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
-        inBreak = true;
-        BreakControl();
+        StartCoroutine(StartBreak());
         navMeshAgent.enabled = true;
-        navMeshAgent.SetDestination(target);
+    }
+    public IEnumerator StartBreak()
+    {
+        inBreak = true;
+        while (inBreak == true)
+        {
+            yield return new WaitForFixedUpdate();
+            Debug.Log("RETURN");
+
+            Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
+            BreakControl();
+            navMeshAgent.SetDestination(target);
+            if (transform.position == target)
+            {
+                Debug.Log("Hedefe Ulaþýldý");
+                navMeshAgent.enabled = false;
+            }   
+        }
     }
     public void LevelControl()
     {
         if (LevelManager.instance.Levels[0].id == startLevel + 2)
         {
-            if (myLevel <3)
+            if (myLevel < 3)
             {
                 myLevel++;
                 startLevel = LevelManager.instance.Levels[0].id;

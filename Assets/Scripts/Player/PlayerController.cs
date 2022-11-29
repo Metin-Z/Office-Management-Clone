@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
    
     private void Update()
     {
-       // if (!GameManager.instance.isGameRunning)
-        //    return;
         JoyStickMovement();
     }
     public void JoyStickMovement()

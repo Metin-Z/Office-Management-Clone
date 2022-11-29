@@ -119,16 +119,15 @@ public class GameRoomComponent : MonoBehaviour
         string path = Application.dataPath + "/Saves/" + dataKey + ".json";
         if (File.Exists(path))
         {
-            Debug.Log("Upload");
             string jsonUpload = File.ReadAllText(path);
-            DeskSave deskSave = JsonUtility.FromJson<DeskSave>(jsonUpload);
-            if (deskSave.deskLevel == 1)
+            GameRoomSave gameRoomSave = JsonUtility.FromJson<GameRoomSave>(jsonUpload);
+            if (gameRoomSave.deskLevel == 1)
             {
                 meshfilt.mesh = mesh1;
                 desk1Available.SetActive(false);
                 desk1NotAvailable.SetActive(true);
             }
-            if (deskSave.deskLevel == 2)
+            if (gameRoomSave.deskLevel == 2)
             {
                 meshfilt.mesh = mesh2;
                 desk1Available.SetActive(false);
@@ -136,11 +135,14 @@ public class GameRoomComponent : MonoBehaviour
                 desk2Available.SetActive(false);
                 desk2NotAvailable.SetActive(true);
             }
-            if (deskSave.deskLevel > 0 && meshRenderer != null)
+            if (gameRoomSave.deskLevel > 0 && meshRenderer != null)
             {
                 meshRenderer.material = mat;
             }
-
+            if (breakPoint != null)
+            {
+                breakPoint.SetActive(true);
+            }
         }
     }
 }

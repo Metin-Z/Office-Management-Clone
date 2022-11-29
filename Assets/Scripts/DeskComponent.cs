@@ -188,7 +188,7 @@ public class DeskComponent : MonoBehaviour
         activeWorker.TryGetComponent(out WorkerComponent workerComp);
         if (workerComp.GetBreak() == false)
         {
-            workerComp.StartBreak();
+            workerComp.SetBreakCoroutine();
         }
     }
     public void JsonSave(string dataKey, int deskLevel, int workerStartLevel, int workerEndLevel)
@@ -202,7 +202,6 @@ public class DeskComponent : MonoBehaviour
         string path = Application.dataPath + "/Saves/" + dataKey + ".json";
         if (File.Exists(path))
         {
-            Debug.Log("Upload");
             string jsonUpload = File.ReadAllText(path);
             DeskSave deskSave = JsonUtility.FromJson<DeskSave>(jsonUpload);
             if (deskSave.deskLevel == 1)
@@ -226,30 +225,27 @@ public class DeskComponent : MonoBehaviour
             if (deskSave.workerStartLevel == 1)
             {
                 activeWorker = Instantiate(worker0, workerSpawnPos.transform);
-                activeWorker.TryGetComponent(out WorkerComponent workerComp);
-                bars.SetActive(true);
-                ClosePanels();
-                workerComp.GetMyDesk(transform.gameObject);
-                workerComp.ReloadLevel(deskSave.workerLastLevel);
+                WorkerGetDesk(activeWorker, deskSave);
             }
             if (deskSave.workerStartLevel == 2)
             {
                 activeWorker = Instantiate(worker1, workerSpawnPos.transform);
-                activeWorker.TryGetComponent(out WorkerComponent workerComp);
-                bars.SetActive(true);
-                ClosePanels();
-                workerComp.GetMyDesk(transform.gameObject);
-                workerComp.ReloadLevel(deskSave.workerLastLevel);
+                WorkerGetDesk(activeWorker, deskSave);
             }
             if (deskSave.workerStartLevel == 3)
             {
                 activeWorker = Instantiate(worker2, workerSpawnPos.transform);
-                activeWorker.TryGetComponent(out WorkerComponent workerComp);
-                bars.SetActive(true);
-                ClosePanels();
-                workerComp.GetMyDesk(transform.gameObject);
-                workerComp.ReloadLevel(deskSave.workerLastLevel);
+                WorkerGetDesk(activeWorker, deskSave);
             }
-        }
+            
+        }    
+    }
+    public void WorkerGetDesk(GameObject activeWorker, DeskSave deskSave)
+    {
+        activeWorker.TryGetComponent(out WorkerComponent workerComp);
+        bars.SetActive(true);
+        ClosePanels();
+        workerComp.GetMyDesk(transform.gameObject);
+        workerComp.ReloadLevel(deskSave.workerLastLevel);
     }
 }

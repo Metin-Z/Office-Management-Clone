@@ -14,9 +14,7 @@ public class BreakComponent : MonoBehaviour
         if (other.CompareTag("Worker"))
         {
             other.TryGetComponent(out Animator anim);
-            other.TryGetComponent(out NavMeshAgent navMesh);
-            anim.SetBool("Gaming",true);
-            navMesh.enabled = false;
+            anim.SetBool("Gaming",true);          
             other.transform.Rotate(0, 180, 0);
         }
     }
