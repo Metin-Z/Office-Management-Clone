@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Lists")]
     [SerializeField] List<DeskComponent> Desks;
     [SerializeField] List<WorkerComponent> Workers;
+     public List<Transform> BreakPoints;
 
 
     #endregion

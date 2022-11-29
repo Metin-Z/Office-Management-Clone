@@ -14,6 +14,7 @@ public class GameRoomComponent : MonoBehaviour
     [SerializeField] private MeshFilter meshfilt;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material mat;
+    [SerializeField] private GameObject breakPoint;
 
 
     [SerializeField] private string dataKey;
@@ -100,6 +101,10 @@ public class GameRoomComponent : MonoBehaviour
         if (meshRenderer != null)
         {
             meshRenderer.material = mat;
+        }
+        if (breakPoint != null)
+        {
+            breakPoint.SetActive(true);
         }
         JsonSave(dataKey, deskLevel);
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeskSave
+public class DeskSave:MonoBehaviour
 {
     public string dataKey;
     public int deskLevel;

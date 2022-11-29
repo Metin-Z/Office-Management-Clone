@@ -36,6 +36,7 @@ public class DeskComponent : MonoBehaviour
 
     public Slider workBar;
     public Slider energyBar;
+    public GameObject breakButton;
 
     [SerializeField] private GameObject workerSpawnPos;
 
@@ -181,6 +182,14 @@ public class DeskComponent : MonoBehaviour
         transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
         ).SetEase(Ease.Linear);
         GameManager.instance.GetNavmesh().BuildNavMesh();
+    }
+    public void GoBreak()
+    {
+        activeWorker.TryGetComponent(out WorkerComponent workerComp);
+        if (workerComp.GetBreak() == false)
+        {
+            workerComp.StartBreak();
+        }
     }
     public void JsonSave(string dataKey, int deskLevel, int workerStartLevel, int workerEndLevel)
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.AI;
 using UnityEngine.UI;
 public class WorkerComponent : MonoBehaviour
@@ -9,6 +10,8 @@ public class WorkerComponent : MonoBehaviour
     [Header("Objects")]
     [SerializeField] GameObject myDesk;
     [SerializeField] GameObject levelUpEffects;
+    [SerializeField] NavMeshAgent navMeshAgent;
+    [SerializeField] Animator anim;
 
     [SerializeField] Slider energyBar;
     [SerializeField] Slider workBar;
@@ -20,6 +23,7 @@ public class WorkerComponent : MonoBehaviour
     [SerializeField] int jobTime;
     [SerializeField] int energy;
     [SerializeField] int baseJobTime;
+    [SerializeField] bool inBreak;
 
     #endregion
     private void Start()
@@ -32,6 +36,19 @@ public class WorkerComponent : MonoBehaviour
         workBar.maxValue = jobTime;
         workBar.value = jobTime;
         StartCoroutine(Work());
+        inBreak = false;
+        BreakControl();
+    }
+    public void BreakControl()
+    {
+        if (inBreak == false)
+        {
+            anim.SetBool("Work", true);
+        }
+        if (inBreak == true)
+        {
+            anim.SetBool("Work", false);
+        }
     }
     public void GetMyDesk(GameObject desk)
     {
@@ -47,6 +64,16 @@ public class WorkerComponent : MonoBehaviour
     public int GetMyBaseLevel()
     {
         return myBaseLevel;
+    }
+    public bool GetBreak()
+    {
+        return inBreak;
+    }
+    public void StartBreak()
+    {
+        Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
+        inBreak = true;
+        navMeshAgent.SetDestination(target);
     }
     public void LevelControl()
     {
