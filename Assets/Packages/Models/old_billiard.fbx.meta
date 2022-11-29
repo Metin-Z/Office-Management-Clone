@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cafa37d04518a4a49930b2307b51f2f1
+guid: c1afa1d33371888498fa8736a7d2a97e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: atlas
-    second: {fileID: 2100000, guid: 61d0aa97066ea4e44ad452d373d5c6ed, type: 2}
+    second: {fileID: 2100000, guid: 602d0d63788c025479e92814e4f97c27, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -93,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

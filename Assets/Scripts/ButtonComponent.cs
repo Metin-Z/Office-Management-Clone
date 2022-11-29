@@ -17,6 +17,12 @@ public class ButtonComponent : MonoBehaviour
     [SerializeField] private GameObject worker2;
 
 
+    [Header("Meshs")]
+    [SerializeField] private Mesh mesh1;
+    [SerializeField] private Mesh mesh2;
+
+
+
     #endregion
 
     public int GetLevel()
