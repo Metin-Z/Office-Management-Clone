@@ -714,7 +714,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3815025766005071485
 MonoBehaviour:
@@ -742,6 +742,8 @@ MonoBehaviour:
   energy: 180
   baseJobTime: 0
   inBreak: 0
+  breakTime: 10
+  spawnPos: {x: 0, y: 0, z: 0}
 --- !u!65 &-6264364701337347993
 BoxCollider:
   m_ObjectHideFlags: 0

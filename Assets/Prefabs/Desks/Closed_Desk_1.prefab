@@ -3538,11 +3538,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.31, y: 0.381, z: 0.16}
+  m_Extents: {x: 0.31, y: 0.381, z: 0.11}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.007, y: 0.38700002, z: 0.038000003}
+  m_Center: {x: -0.007, y: 0.38700002, z: -0.1}
   m_TimeToStationary: 0.5
 --- !u!1 &3503429124989513595
 GameObject:
@@ -4135,7 +4135,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy Worker
+  m_text: Worker
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8cf240f44fc76a24c9395da14f398a6e, type: 2}
   m_sharedMaterial: {fileID: 3451084806353519526, guid: 8cf240f44fc76a24c9395da14f398a6e,

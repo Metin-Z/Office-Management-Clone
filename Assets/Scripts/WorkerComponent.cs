@@ -32,6 +32,10 @@ public class WorkerComponent : MonoBehaviour
     {
         myDesk.TryGetComponent(out DeskComponent desk);
         startLevel = LevelManager.instance.Levels[0].id;
+        if (myLevel ==0)
+        {
+            myLevel = 1;
+        }
         energyBar = desk.energyBar;
         workBar = desk.workBar;
         baseJobTime = jobTime;
@@ -49,6 +53,7 @@ public class WorkerComponent : MonoBehaviour
             energy = 180;
             anim.SetBool("Work", true);
             transform.LookAt(myDesk.transform);
+            StartCoroutine(Work());
         }
         if (inBreak == true)
         {
@@ -83,11 +88,11 @@ public class WorkerComponent : MonoBehaviour
     public IEnumerator StartBreak()
     {
         inBreak = true;
+        breakTime = 10;
         Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
         while (inBreak == true)
         {
             yield return new WaitForFixedUpdate();
-            Debug.Log("fixedUpdate");
             BreakControl();
             navMeshAgent.SetDestination(target);
 
@@ -101,18 +106,22 @@ public class WorkerComponent : MonoBehaviour
                 {
                     yield return new WaitForSeconds(1);
                     breakTime--;                
-                }
-                
+                }             
             }
             if (breakTime ==0)
             {
                 navMeshAgent.enabled = true;
                 navMeshAgent.SetDestination(spawnPos);
-                if (transform.position == spawnPos)
+                spawnPos.y = transform.position.y;
+                Debug.Log("fixedUpdate");
+                if (Vector3.Distance(transform.position, spawnPos) < 0.5f)
                 {
                     Debug.Log("Break Bitti");
                     inBreak = false;
+                    transform.position = spawnPos;
                     BreakControl();
+                    navMeshAgent.enabled = false;
+                    StopCoroutine(StartBreak());
                 }
             }
             
