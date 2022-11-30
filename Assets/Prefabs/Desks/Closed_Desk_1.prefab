@@ -1915,7 +1915,7 @@ GameObject:
   - component: {fileID: 2239350191272291019}
   - component: {fileID: 5320827855139525681}
   - component: {fileID: 7136818615153193051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3538,11 +3538,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.31, y: 0.381, z: 0.11}
+  m_Extents: {x: 0.565, y: 0.381, z: 0.317}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.007, y: 0.38700002, z: -0.1}
+  m_Center: {x: -0.007, y: 0.38700002, z: 0.038000003}
   m_TimeToStationary: 0.5
 --- !u!1 &3503429124989513595
 GameObject:
@@ -7190,7 +7190,7 @@ GameObject:
   - component: {fileID: 6855542535797824325}
   - component: {fileID: 2714365544433491024}
   - component: {fileID: 1886185736303464043}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

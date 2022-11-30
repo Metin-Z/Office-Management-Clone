@@ -7,6 +7,7 @@ public class BreakComponent : MonoBehaviour
 {
     [SerializeField] private bool gaming;
     [SerializeField] private bool gamingArcade;
+    [SerializeField] private bool offenSiveIdle;
     private void Start()
     {
         GameManager.instance.BreakPoints.Add(transform);
@@ -16,6 +17,8 @@ public class BreakComponent : MonoBehaviour
         if (other.CompareTag("Worker"))
         {
             GameManager.instance.BreakPoints.Remove(transform);
+            other.TryGetComponent(out WorkerComponent workerComp);
+            workerComp.GetBreakObject(transform.parent.gameObject);
             other.TryGetComponent(out Animator anim);
             if (gaming)
             {         
@@ -24,6 +27,10 @@ public class BreakComponent : MonoBehaviour
             if (gamingArcade)
             {
                 anim.SetBool("GamingArcade", true);
+            }
+            if (offenSiveIdle)
+            {
+                anim.SetBool("OffenSiveIdle", true);
             }
 
         }
@@ -41,6 +48,10 @@ public class BreakComponent : MonoBehaviour
             if (gamingArcade)
             {
                 anim.SetBool("GamingArcade", false);
+            }
+            if (offenSiveIdle)
+            {
+                anim.SetBool("OffenSiveIdle", false);
             }
         }
     }

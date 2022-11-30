@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.IO;
+using UnityEngine.AI;
+
+
 public class GameRoomComponent : MonoBehaviour
 {
     #region SerializeFields
@@ -12,9 +15,11 @@ public class GameRoomComponent : MonoBehaviour
     [SerializeField] private Mesh mesh1;
     [SerializeField] private Mesh mesh2;
     [SerializeField] private MeshFilter meshfilt;
+    [SerializeField] private NavMeshObstacle navMeshObstacle;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material mat;
     [SerializeField] private GameObject breakPoint;
+    [SerializeField] private GameObject breakPoint2;
 
 
     [SerializeField] private string dataKey;
@@ -88,7 +93,6 @@ public class GameRoomComponent : MonoBehaviour
             GameManager.instance.DecreaseMoney(button.Getprice());
             desk1Available.SetActive(false);
             desk1NotAvailable.SetActive(true);
-            GameManager.instance.GetNavmesh().BuildNavMesh();
         }
         if (deskLevel == 2)
         {
@@ -96,7 +100,6 @@ public class GameRoomComponent : MonoBehaviour
             GameManager.instance.DecreaseMoney(button.Getprice());
             desk2Available.SetActive(false);
             desk2NotAvailable.SetActive(true);
-            GameManager.instance.GetNavmesh().BuildNavMesh();
         }
         if (meshRenderer != null)
         {
@@ -106,7 +109,15 @@ public class GameRoomComponent : MonoBehaviour
         {
             breakPoint.SetActive(true);
         }
+        if (breakPoint2 != null)
+        {
+            breakPoint2.SetActive(true);
+        }
         JsonSave(dataKey, deskLevel);
+
+        navMeshObstacle.center = meshfilt.gameObject.transform.localPosition - meshfilt.gameObject.transform.localPosition;
+        navMeshObstacle.size = meshfilt.mesh.bounds.size;
+        GameManager.instance.GetNavmesh().BuildNavMesh();
     }
     public void JsonSave(string dataKey, int deskLevel)
     {
@@ -143,6 +154,14 @@ public class GameRoomComponent : MonoBehaviour
             {
                 breakPoint.SetActive(true);
             }
+            if (breakPoint2 != null)
+            {
+                breakPoint2.SetActive(true);
+            }
+            navMeshObstacle.center = meshfilt.gameObject.transform.localPosition - meshfilt.gameObject.transform.localPosition;
+            navMeshObstacle.size = meshfilt.mesh.bounds.size;
+            GameManager.instance.GetNavmesh().BuildNavMesh();
+
         }
     }
 }

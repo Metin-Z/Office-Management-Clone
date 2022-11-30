@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
         {
             Workers[i].LevelControl();
         }
+        LockArea.instance.ChekGround();
     }
     public void DeskControl()
     {

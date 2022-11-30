@@ -26,6 +26,7 @@ public class WorkerComponent : MonoBehaviour
     [SerializeField] bool inBreak;
     [SerializeField] int breakTime =10;
     [SerializeField] Vector3 spawnPos;
+    [SerializeField] private GameObject breakObject;
 
     #endregion
     private void Start()
@@ -72,6 +73,10 @@ public class WorkerComponent : MonoBehaviour
         myDesk.TryGetComponent(out DeskComponent desk);
         myLevel = desk.workerLevel;
     }
+    public void GetBreakObject(GameObject breakObj)
+    {
+        breakObject = breakObj;
+    }
     public int GetMyBaseLevel()
     {
         return myBaseLevel;
@@ -100,11 +105,11 @@ public class WorkerComponent : MonoBehaviour
 
             if (Vector3.Distance(transform.position,target) < 0.2f)
             {
-                Debug.Log("Hedefe Ulaþýldý");
                 navMeshAgent.enabled = false;
                 while (breakTime>0)
                 {
                     yield return new WaitForSeconds(1);
+                    transform.LookAt(breakObject.transform);
                     breakTime--;                
                 }             
             }
@@ -113,10 +118,8 @@ public class WorkerComponent : MonoBehaviour
                 navMeshAgent.enabled = true;
                 navMeshAgent.SetDestination(spawnPos);
                 spawnPos.y = transform.position.y;
-                Debug.Log("fixedUpdate");
-                if (Vector3.Distance(transform.position, spawnPos) < 0.5f)
+                if (Vector3.Distance(transform.position, spawnPos) < 0.3f)
                 {
-                    Debug.Log("Break Bitti");
                     inBreak = false;
                     transform.position = spawnPos;
                     BreakControl();

@@ -162,11 +162,19 @@ public class DeskComponent : MonoBehaviour
         }
         //JsonSave(dataKey, deskLevel, workerLevel, workerLevel);
         GoSave();
+        GameManager.instance.GetNavmesh().BuildNavMesh();
     }
     public void GoSave()
     {
-        activeWorker.TryGetComponent(out WorkerComponent workerComp);
-        JsonSave(dataKey, deskLevel, workerComp.GetMyBaseLevel(), workerLevel);
+        if (activeWorker !=null)
+        {
+            activeWorker.TryGetComponent(out WorkerComponent workerComp);
+            JsonSave(dataKey, deskLevel, workerComp.GetMyBaseLevel(), workerLevel);
+        }
+        if (activeWorker == null)
+        {
+            JsonSave(dataKey, deskLevel, 0, workerLevel);
+        }
     }
     public void DeskAvailableControl()
     {

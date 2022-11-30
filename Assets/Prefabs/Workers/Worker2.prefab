@@ -1437,7 +1437,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1475,6 +1475,9 @@ MonoBehaviour:
   energy: 180
   baseJobTime: 0
   inBreak: 0
+  breakTime: 10
+  spawnPos: {x: 0, y: 0, z: 0}
+  breakObject: {fileID: 0}
 --- !u!65 &-4307312372329584495
 BoxCollider:
   m_ObjectHideFlags: 0
