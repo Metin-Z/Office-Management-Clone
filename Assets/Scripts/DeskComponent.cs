@@ -137,7 +137,8 @@ public class DeskComponent : MonoBehaviour
 
         activeWorker.TryGetComponent(out WorkerComponent workerComp);
         workerComp.GetMyDesk(gameObject);
-        JsonSave(dataKey, deskLevel, workerComp.GetMyBaseLevel(), workerLevel);
+        //JsonSave(dataKey, deskLevel, workerComp.GetMyBaseLevel(), workerLevel);
+        GoSave();
     }
     public void deskLevelControl()
     {
@@ -159,7 +160,13 @@ public class DeskComponent : MonoBehaviour
             chair2.SetActive(true);
             chair1.SetActive(false);
         }
-        JsonSave(dataKey, deskLevel, workerLevel, workerLevel);
+        //JsonSave(dataKey, deskLevel, workerLevel, workerLevel);
+        GoSave();
+    }
+    public void GoSave()
+    {
+        activeWorker.TryGetComponent(out WorkerComponent workerComp);
+        JsonSave(dataKey, deskLevel, workerComp.GetMyBaseLevel(), workerLevel);
     }
     public void DeskAvailableControl()
     {

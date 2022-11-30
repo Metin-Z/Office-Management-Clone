@@ -24,6 +24,8 @@ public class WorkerComponent : MonoBehaviour
     [SerializeField] int energy;
     [SerializeField] int baseJobTime;
     [SerializeField] bool inBreak;
+    [SerializeField] int breakTime =10;
+    [SerializeField] Vector3 spawnPos;
 
     #endregion
     private void Start()
@@ -38,6 +40,7 @@ public class WorkerComponent : MonoBehaviour
         StartCoroutine(Work());
         inBreak = false;
         BreakControl();
+        spawnPos = transform.position;
     }
     public void BreakControl()
     {
@@ -45,6 +48,7 @@ public class WorkerComponent : MonoBehaviour
         {
             energy = 180;
             anim.SetBool("Work", true);
+            transform.LookAt(myDesk.transform);
         }
         if (inBreak == true)
         {
@@ -79,19 +83,34 @@ public class WorkerComponent : MonoBehaviour
     public IEnumerator StartBreak()
     {
         inBreak = true;
+        Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
         while (inBreak == true)
         {
             yield return new WaitForFixedUpdate();
-            Debug.Log("RETURN");
-
-            Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
+            Debug.Log("fixedUpdate");
             BreakControl();
             navMeshAgent.SetDestination(target);
             if (transform.position == target)
             {
                 Debug.Log("Hedefe Ulaþýldý");
                 navMeshAgent.enabled = false;
-            }   
+                while (breakTime>0)
+                {
+                    breakTime--;                
+                }
+                
+            }
+            if (breakTime ==0)
+            {
+                navMeshAgent.SetDestination(spawnPos);
+                if (transform.position == spawnPos)
+                {
+                    Debug.Log("Break Bitti");
+                    inBreak = false;
+                    BreakControl();
+                }
+            }
+            
         }
     }
     public void LevelControl()
@@ -101,6 +120,8 @@ public class WorkerComponent : MonoBehaviour
             if (myLevel < 3)
             {
                 myLevel++;
+                myDesk.TryGetComponent(out DeskComponent desk);
+                desk.workerLevel = myLevel;
                 startLevel = LevelManager.instance.Levels[0].id;
                 SaveWorker();
                 Instantiate(levelUpEffects, transform.position, Quaternion.identity);
@@ -110,7 +131,8 @@ public class WorkerComponent : MonoBehaviour
     public void SaveWorker()
     {
         myDesk.TryGetComponent(out DeskComponent desk);
-        desk.JsonSave(desk.GetDataKey(), desk.GetDeskLevel(), myBaseLevel, myLevel);
+        //desk.JsonSave(desk.GetDataKey(), desk.GetDeskLevel(), myBaseLevel, myLevel);
+        desk.GoSave();
     }
 
     public void ReloadLevel(int myLevelReload)

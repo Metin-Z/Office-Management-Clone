@@ -2176,7 +2176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235385871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.285, z: 0.315}
+  m_LocalPosition: {x: 0, y: 0.285, z: 0.472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2224,6 +2224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93e89634f908a84090e3a6763747ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gaming: 1
+  gamingArcade: 0
 --- !u!1 &238101536
 GameObject:
   m_ObjectHideFlags: 0
@@ -8517,7 +8519,7 @@ Transform:
   - {fileID: 399551256}
   - {fileID: 372066488}
   m_Father: {fileID: 1691015544}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &760709284
 MonoBehaviour:
@@ -8539,6 +8541,9 @@ MonoBehaviour:
   breakPoint: {fileID: 0}
   dataKey: Pool_01
   deskLevel: 0
+  desk:
+    dataKey: 
+    deskLevel: 0
   buyPanel: {fileID: 399551252}
   gamePanel: {fileID: 372066487}
   desk1Available: {fileID: 1987530049}
@@ -9553,7 +9558,7 @@ Transform:
   - {fileID: 484532442}
   - {fileID: 235385872}
   m_Father: {fileID: 1691015544}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &829662966
 MonoBehaviour:
@@ -9575,6 +9580,9 @@ MonoBehaviour:
   breakPoint: {fileID: 235385871}
   dataKey: Seat_01
   deskLevel: 0
+  desk:
+    dataKey: 
+    deskLevel: 0
   buyPanel: {fileID: 1967880746}
   gamePanel: {fileID: 484532441}
   desk1Available: {fileID: 458715615}
@@ -9616,7 +9624,7 @@ NavMeshObstacle:
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0.15, y: 0.38700002, z: -0.17}
+  m_Center: {x: 0.15, y: 0.38700002, z: -0.21}
   m_TimeToStationary: 0.5
 --- !u!23 &829662970
 MeshRenderer:
@@ -12032,6 +12040,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037131502}
   m_CullTransparentMesh: 1
+--- !u!1 &1042185781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042185782}
+  - component: {fileID: 1042185785}
+  - component: {fileID: 1042185784}
+  - component: {fileID: 1042185783}
+  m_Layer: 3
+  m_Name: BreakPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1042185782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042185781}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.06, y: 0.467, z: 0.702}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8375625734259813303}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1042185783
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042185781}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1042185784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042185781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 2, z: 0.1}
+  m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &1042185785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042185781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93e89634f908a84090e3a6763747ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gaming: 0
+  gamingArcade: 1
 --- !u!1 &1047693386
 GameObject:
   m_ObjectHideFlags: 0
@@ -16061,7 +16146,7 @@ Transform:
   - {fileID: 1910948351}
   - {fileID: 180225000}
   m_Father: {fileID: 1691015544}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1366658967
 MonoBehaviour:
@@ -16083,6 +16168,9 @@ MonoBehaviour:
   breakPoint: {fileID: 0}
   dataKey: ps_01
   deskLevel: 0
+  desk:
+    dataKey: 
+    deskLevel: 0
   buyPanel: {fileID: 1910948347}
   gamePanel: {fileID: 180224999}
   desk1Available: {fileID: 1965585861}
@@ -19265,10 +19353,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8375625734259813303}
-  - {fileID: 543450652637688149}
   - {fileID: 1366658966}
   - {fileID: 829662965}
   - {fileID: 760709283}
+  - {fileID: 543450652637688149}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23267,7 +23355,7 @@ Transform:
   - {fileID: 6648271}
   - {fileID: 1841571938}
   m_Father: {fileID: 1691015544}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &719147777508440617
 Transform:
@@ -23899,6 +23987,9 @@ MonoBehaviour:
   breakPoint: {fileID: 0}
   dataKey: tv_01
   deskLevel: 0
+  desk:
+    dataKey: 
+    deskLevel: 0
   buyPanel: {fileID: 6648267}
   gamePanel: {fileID: 1841571937}
   desk1Available: {fileID: 781748069}
@@ -25265,12 +25356,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9185060199178531085}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 5.931, y: -0.484, z: 2.937}
+  m_LocalPosition: {x: 6.78, y: -0.484, z: 2.937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 184403349}
   - {fileID: 783595567}
+  - {fileID: 1042185782}
   m_Father: {fileID: 1691015544}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -25786,9 +25878,12 @@ MonoBehaviour:
   meshfilt: {fileID: 4869491464463328274}
   meshRenderer: {fileID: 0}
   mat: {fileID: 0}
-  breakPoint: {fileID: 0}
+  breakPoint: {fileID: 1042185781}
   dataKey: arcade_01
   deskLevel: 0
+  desk:
+    dataKey: 
+    deskLevel: 0
   buyPanel: {fileID: 184403345}
   gamePanel: {fileID: 783595566}
   desk1Available: {fileID: 604273523}

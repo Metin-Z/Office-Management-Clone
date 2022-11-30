@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class BreakComponent : MonoBehaviour
 {
+    [SerializeField] private bool gaming;
+    [SerializeField] private bool gamingArcade;
     private void Start()
     {
         GameManager.instance.BreakPoints.Add(transform);
@@ -13,17 +15,33 @@ public class BreakComponent : MonoBehaviour
     {
         if (other.CompareTag("Worker"))
         {
+            GameManager.instance.BreakPoints.Remove(transform);
             other.TryGetComponent(out Animator anim);
-            anim.SetBool("Gaming",true);          
-            other.transform.Rotate(0, 180, 0);
+            if (gaming)
+            {         
+                anim.SetBool("Gaming", true);
+            }
+            if (gamingArcade)
+            {
+                anim.SetBool("GamingArcade", true);
+            }
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Worker"))
-        {           
+        {
+            GameManager.instance.BreakPoints.Add(transform);
             other.TryGetComponent(out Animator anim);
-            anim.SetBool("Gaming", false);
+            if (gaming)
+            {
+                anim.SetBool("Gaming", false);
+            }
+            if (gamingArcade)
+            {
+                anim.SetBool("GamingArcade", false);
+            }
         }
     }
 }
