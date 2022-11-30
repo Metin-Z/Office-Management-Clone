@@ -90,18 +90,23 @@ public class WorkerComponent : MonoBehaviour
             Debug.Log("fixedUpdate");
             BreakControl();
             navMeshAgent.SetDestination(target);
-            if (transform.position == target)
+
+            target.y = transform.position.y;
+
+            if (Vector3.Distance(transform.position,target) < 0.2f)
             {
                 Debug.Log("Hedefe Ulaþýldý");
                 navMeshAgent.enabled = false;
                 while (breakTime>0)
                 {
+                    yield return new WaitForSeconds(1);
                     breakTime--;                
                 }
                 
             }
             if (breakTime ==0)
             {
+                navMeshAgent.enabled = true;
                 navMeshAgent.SetDestination(spawnPos);
                 if (transform.position == spawnPos)
                 {

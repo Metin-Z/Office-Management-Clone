@@ -3388,7 +3388,6 @@ GameObject:
   - component: {fileID: 1311977011683139465}
   - component: {fileID: 3878130815674805059}
   - component: {fileID: 1311977011683139478}
-  - component: {fileID: 6945260230534417603}
   - component: {fileID: 1716808100350691565}
   - component: {fileID: 1625826671908378748}
   m_Layer: 0
@@ -3482,22 +3481,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.430741, y: 0.5573732, z: 0.9922276}
   m_Center: {x: -0.007438469, y: 0.2841042, z: 0.01689129}
---- !u!114 &6945260230534417603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3373511808687360662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88d9eb63c826fae4794895175dbea0c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataKey: 
-  deskLevel: 0
-  workerStartLevel: 0
-  workerLastLevel: 0
 --- !u!114 &1716808100350691565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3512,7 +3495,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buyPanel: {fileID: 4150251491804035754}
   dataKey: 
-  desk: {fileID: 0}
+  desk:
+    dataKey: 
+    deskLevel: 0
+    workerStartLevel: 0
+    workerLastLevel: 0
   desk0: {fileID: -2746142260806068395, guid: cafa37d04518a4a49930b2307b51f2f1, type: 3}
   desk1: {fileID: -57925021164763945, guid: 4118eb168ae6ba24d908c448d87a0ef6, type: 3}
   desk2: {fileID: 7195947322683527204, guid: ec93373638590014fa56155c2b458ad0, type: 3}

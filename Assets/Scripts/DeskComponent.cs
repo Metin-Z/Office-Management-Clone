@@ -200,7 +200,14 @@ public class DeskComponent : MonoBehaviour
     }
     public void JsonSave(string dataKey, int deskLevel, int workerStartLevel, int workerEndLevel)
     {
-        desk = new DeskSave(dataKey, deskLevel, workerStartLevel, workerEndLevel);
+        desk = new DeskSave()
+        {
+            dataKey = dataKey,
+            deskLevel = deskLevel,
+            workerStartLevel = workerStartLevel,
+            workerLastLevel = workerEndLevel,
+        };
+
         string jsonString = JsonUtility.ToJson(desk);
         File.WriteAllText(Application.dataPath + "/Saves/" + dataKey + ".json", jsonString);
     }
