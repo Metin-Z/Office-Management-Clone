@@ -190,6 +190,12 @@ public class DeskComponent : MonoBehaviour
         worker1Available.SetActive(false);
         worker2Available.SetActive(false);
     }
+    public void OpenPanels()
+    {
+        worker0Available.SetActive(true);
+        worker1Available.SetActive(true);
+        worker2Available.SetActive(true);
+    }
     public void Scale()
     {
         gameObject.SetActive(true);
@@ -269,5 +275,14 @@ public class DeskComponent : MonoBehaviour
         ClosePanels();
         workerComp.GetMyDesk(transform.gameObject);
         workerComp.ReloadLevel(deskSave.workerLastLevel);
+    }
+    public void FireWorker()
+    {
+        activeWorker.TryGetComponent(out WorkerComponent worker);
+        worker.GetFired();
+        activeWorker = null;       
+        bars.SetActive(false);
+        OpenPanels();
+        GoSave();
     }
 }

@@ -5,11 +5,16 @@ using System.Linq;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
-    public List<Level> Levels;
+    public List<Level> Levels;    
 
     #region SerializeFields
+    [SerializeField] private Transform  fireArea;
     #endregion
 
+    public Transform GetFirePos()
+    {
+        return fireArea;
+    }
     public virtual void Awake()
     {
         if (!instance)

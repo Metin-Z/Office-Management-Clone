@@ -60,10 +60,13 @@ public class LockArea : MonoBehaviour
             GameManager.instance.GetNavmesh().BuildNavMesh();
             gamePanel.SetActive(false);
         }
-
+    }
+    public void BuyOfficeArea(GameObject buttonComp)
+    {
+        buttonComp.TryGetComponent(out ButtonComponent button);
         if (GameManager.instance.GetMoney() >= button.Getprice() && LevelManager.instance.Levels[0].id >= 6)
         {
-            PlayerPrefs.SetInt("OfficeBuy",1);
+            PlayerPrefs.SetInt("OfficeBuy", 1);
             GameManager.instance.GetSlider().LevelBarUpdate(button.GetXP());
             officeGround.SetActive(true);
             GameManager.instance.DecreaseMoney(button.Getprice());

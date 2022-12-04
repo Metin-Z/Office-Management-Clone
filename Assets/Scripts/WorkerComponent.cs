@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using DG.Tweening;
 public class WorkerComponent : MonoBehaviour
 {
     #region SerializeFields
@@ -24,16 +25,17 @@ public class WorkerComponent : MonoBehaviour
     [SerializeField] int energy;
     [SerializeField] int baseJobTime;
     [SerializeField] bool inBreak;
-    [SerializeField] int breakTime =10;
+    [SerializeField] int breakTime = 10;
     [SerializeField] Vector3 spawnPos;
     [SerializeField] private GameObject breakObject;
+    [SerializeField] private GameObject energyIcon;
 
     #endregion
     private void Start()
     {
         myDesk.TryGetComponent(out DeskComponent desk);
         startLevel = LevelManager.instance.Levels[0].id;
-        if (myLevel ==0)
+        if (myLevel == 0)
         {
             myLevel = 1;
         }
@@ -93,6 +95,10 @@ public class WorkerComponent : MonoBehaviour
     public IEnumerator StartBreak()
     {
         inBreak = true;
+        if (energy != 1)
+        {
+            energyIcon.SetActive(false);
+        }
         breakTime = 10;
         Vector3 target = GameManager.instance.BreakPoints[0].transform.position;
         while (inBreak == true)
@@ -103,17 +109,17 @@ public class WorkerComponent : MonoBehaviour
 
             target.y = transform.position.y;
 
-            if (Vector3.Distance(transform.position,target) < 0.2f)
+            if (Vector3.Distance(transform.position, target) < 0.2f)
             {
                 navMeshAgent.enabled = false;
-                while (breakTime>0)
+                while (breakTime > 0)
                 {
                     yield return new WaitForSeconds(1);
                     transform.LookAt(breakObject.transform);
-                    breakTime--;                
-                }             
+                    breakTime--;
+                }
             }
-            if (breakTime ==0)
+            if (breakTime == 0)
             {
                 navMeshAgent.enabled = true;
                 navMeshAgent.SetDestination(spawnPos);
@@ -127,7 +133,7 @@ public class WorkerComponent : MonoBehaviour
                     StopCoroutine(StartBreak());
                 }
             }
-            
+
         }
     }
     public void LevelControl()
@@ -160,6 +166,10 @@ public class WorkerComponent : MonoBehaviour
     {
         while (energy > 0)
         {
+            if (energy <= 1)
+            {
+                energyIcon.SetActive(true);
+            }
             energy--;
             energyBar.value = energy;
 
@@ -184,5 +194,31 @@ public class WorkerComponent : MonoBehaviour
         GameManager.instance.IncreaseMoney(30);
         GameManager.instance.GetSlider().LevelBarUpdate(15);
 
+    }
+    public void GetFired()
+    {
+        StartCoroutine(ImFired());
+    }
+    public IEnumerator ImFired()
+    {
+        bool fired;
+        fired = true;
+        while (fired == true)
+        {
+            yield return new WaitForFixedUpdate();
+            Vector3 target = LevelManager.instance.GetFirePos().position;
+            navMeshAgent.enabled = true;
+            navMeshAgent.SetDestination(LevelManager.instance.GetFirePos().position);
+            target.y = transform.position.y;
+            anim.SetBool("Work", false);
+            GameManager.instance.GetWorkers().Remove(this);
+            if (Vector3.Distance(transform.position, target) < 0.6f)
+            {
+                gameObject.SetActive(true);
+                transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
+                Destroy(transform.gameObject)
+                ).SetEase(Ease.Linear);
+            }
+        }
     }
 }

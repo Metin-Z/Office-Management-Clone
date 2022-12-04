@@ -25,6 +25,7 @@ public class GameRoomComponent : MonoBehaviour
     [SerializeField] private string dataKey;
     [SerializeField] private int deskLevel;
     [SerializeField] private GameRoomSave desk;
+    [SerializeField] private bool meetingTable;
 
 
     [Header("Panel Objects")]
@@ -68,11 +69,23 @@ public class GameRoomComponent : MonoBehaviour
     }
     public void Scale()
     {
-        gameObject.SetActive(true);
-        transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
-        transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
-        ).SetEase(Ease.Linear);
-        GameManager.instance.GetNavmesh().BuildNavMesh();
+        if (meetingTable == false)
+        {
+            gameObject.SetActive(true);
+            transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
+            transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1)
+            ).SetEase(Ease.Linear);
+            GameManager.instance.GetNavmesh().BuildNavMesh();
+        }
+        if (meetingTable == true)
+        {
+            gameObject.SetActive(true);
+            transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 1).OnComplete(() =>
+            transform.DOScale(new Vector3(1.5f, 0.75f, 1.5f), 1)
+            ).SetEase(Ease.Linear);
+            GameManager.instance.GetNavmesh().BuildNavMesh();
+        }
+
     }
     public void Upgrade1(GameObject buttonComp)
     {
