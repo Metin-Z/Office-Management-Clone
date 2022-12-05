@@ -75,6 +75,10 @@ public class WorkerComponent : MonoBehaviour
         myDesk.TryGetComponent(out DeskComponent desk);
         myLevel = desk.workerLevel;
     }
+    public int GetLevel()
+    {
+        return myLevel;
+    }
     public void GetBreakObject(GameObject breakObj)
     {
         breakObject = breakObj;
@@ -138,6 +142,7 @@ public class WorkerComponent : MonoBehaviour
     }
     public void LevelControl()
     {
+        
         if (LevelManager.instance.Levels[0].id == startLevel + 2)
         {
             if (myLevel < 3)
@@ -154,7 +159,7 @@ public class WorkerComponent : MonoBehaviour
     public void SaveWorker()
     {
         myDesk.TryGetComponent(out DeskComponent desk);
-        //desk.JsonSave(desk.GetDataKey(), desk.GetDeskLevel(), myBaseLevel, myLevel);
+        //desk.JsonSave(desk.GetDataKey(), desk.GetDeskLevel(), GetMyBaseLevel(),GetLevel());
         desk.GoSave();
     }
 

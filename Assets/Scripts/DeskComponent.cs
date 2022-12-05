@@ -73,6 +73,15 @@ public class DeskComponent : MonoBehaviour
     {
         Scale();
         JsonLoad();
+        string path = Application.dataPath + "/Saves/" + dataKey + ".json";
+        if (File.Exists(path))
+        {
+            string jsonUpload = File.ReadAllText(path);
+            DeskSave deskSave = JsonUtility.FromJson<DeskSave>(jsonUpload);
+            activeWorker.TryGetComponent(out WorkerComponent workerComp);
+            deskLevel = deskSave.deskLevel;
+            //workerComp.GetLevel() = deskSave.deskLevel;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -169,6 +178,7 @@ public class DeskComponent : MonoBehaviour
         if (activeWorker !=null)
         {
             activeWorker.TryGetComponent(out WorkerComponent workerComp);
+            desk.deskLevel = deskLevel;
             JsonSave(dataKey, deskLevel, workerComp.GetMyBaseLevel(), workerLevel);
         }
         if (activeWorker == null)
@@ -207,10 +217,13 @@ public class DeskComponent : MonoBehaviour
     public void GoBreak()
     {
         activeWorker.TryGetComponent(out WorkerComponent workerComp);
-        if (workerComp.GetBreak() == false)
+        if (LevelManager.instance.Levels[0].id >=3 && PlayerPrefs.GetInt("GameBuy") == 1 && GameManager.instance.BreakPoints.Count > 0)
         {
-            workerComp.SetBreakCoroutine();
-        }
+            if (workerComp.GetBreak() == false)
+            {
+                workerComp.SetBreakCoroutine();
+            }
+        }      
     }
     public void JsonSave(string dataKey, int deskLevel, int workerStartLevel, int workerEndLevel)
     {
@@ -242,7 +255,7 @@ public class DeskComponent : MonoBehaviour
             }
             if (deskSave.deskLevel == 2)
             {
-                meshfilt.mesh = desk2;
+                meshfilt.mesh = desk2;              
                 desk1Available.SetActive(false);
                 desk1NotAvailable.SetActive(true);
                 desk2Available.SetActive(false);
@@ -283,6 +296,6 @@ public class DeskComponent : MonoBehaviour
         activeWorker = null;       
         bars.SetActive(false);
         OpenPanels();
-        GoSave();
+        JsonSave(dataKey, deskLevel, 0, 0);
     }
 }

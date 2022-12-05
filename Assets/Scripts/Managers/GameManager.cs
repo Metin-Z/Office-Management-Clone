@@ -63,6 +63,10 @@ public class GameManager : MonoBehaviour
         {
             IncreaseMoney(50);
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GameManager.instance.GetSlider().LevelBarUpdate(15);
+        }
     }
 
     public PlayerController GetPlayerController()
