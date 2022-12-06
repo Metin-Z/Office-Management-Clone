@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Lists")]
     [SerializeField] List<DeskComponent> Desks;
     [SerializeField] List<WorkerComponent> Workers;
-     public List<Transform> BreakPoints;
+    public List<Transform> BreakPoints;
 
 
     #endregion
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     public List<WorkerComponent> GetWorkers()
     {
         return Workers;
-    } 
+    }
     public NavMeshSurface GetNavmesh()
     {
         return _navmesh;
@@ -111,9 +111,9 @@ public class GameManager : MonoBehaviour
     {
         LevelManager.instance.Levels.RemoveAt(0);
         levelId = LevelManager.instance.Levels[0].id;
-        PlayerPrefs.SetInt("level",levelId);
+        PlayerPrefs.SetInt("level", levelId);
         _slider.ResetLevelBar();
-        
+
         for (int i = 0; i < Desks.Count; i++)
         {
             Desks[i].DeskAvailableControl();
@@ -130,5 +130,14 @@ public class GameManager : MonoBehaviour
         {
             Desks[i].DeskAvailableControl();
         }
+    }
+    public void MoneyHack()
+    {
+        IncreaseMoney(50);
+    }
+
+    public void XpHack()
+    {
+        GameManager.instance.GetSlider().LevelBarUpdate(15);
     }
 }
