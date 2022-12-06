@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 1106794569114986417}
   - component: {fileID: 1517629258814190331}
   - component: {fileID: 5122301951540721280}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ConfettiExplosionOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4979,7 +4979,7 @@ GameObject:
   - component: {fileID: 3850429099552465670}
   - component: {fileID: 1529309936007681000}
   - component: {fileID: 8201544493251415724}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ConfettiExplosionPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9679,7 +9679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6472540141769708407}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelUpEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9715,7 +9715,7 @@ GameObject:
   - component: {fileID: 5033250483674023025}
   - component: {fileID: 3058211877744448436}
   - component: {fileID: 7246951582782005118}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelUpConfetti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
