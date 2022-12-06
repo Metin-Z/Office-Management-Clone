@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.AI;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        //StreamWriter file = new("Saves");
+        var Saves = Directory.CreateDirectory(Application.persistentDataPath +"/Saves");
         levelId = 1;
         DeskControl();
         mainMoney = PlayerPrefs.GetInt("Money");

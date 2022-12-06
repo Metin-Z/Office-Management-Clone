@@ -236,11 +236,11 @@ public class DeskComponent : MonoBehaviour
         };
 
         string jsonString = JsonUtility.ToJson(desk);
-        File.WriteAllText(Application.dataPath + "/Saves/" + dataKey + ".json", jsonString);
+        File.WriteAllText(Application.persistentDataPath + "/Saves/" + dataKey + ".json", jsonString);
     }
     public void JsonLoad()
     {
-        string path = Application.dataPath + "/Saves/" + dataKey + ".json";
+        string path = Application.persistentDataPath + "/Saves/" + dataKey + ".json";
         if (File.Exists(path))
         {
             string jsonUpload = File.ReadAllText(path);
